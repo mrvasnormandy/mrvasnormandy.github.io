@@ -1,0 +1,94 @@
+<html>
+
+<head>
+    <title>
+        Dylan Davies - Programmer / Full-Stack Developer
+    </title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" rel="stylesheet" type="text/css" />
+    <link href="main.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div class="hero">
+        <div class="hero__img"></div>
+        <div class="hero__shadow"></div>
+        <div class="hero__content">
+            <div id="infoContainer" class="hero__info">
+                <div class="hero__business-card">
+                    <h1 class="hero__title rubbery">Hi,<br />I'm Dylan,<br />a programmer</h1>
+                    <h2 class="hero__subtitle rubbery">Programmer / Full-Stack Developer</h2>
+                    <div class="tags">
+                        <span class="tag java">
+                            Java
+                        </span>
+                        <span class="tag android">
+                            Android
+                        </span>
+                        <span class="tag hibernate">
+                            Hibernate
+                        </span>
+                        <span class="tag sql">
+                            SQL
+                        </span>
+                        <span class="tag css">
+                            CSS
+                        </span>
+                        <span class="tag sass">
+                            SASS
+                        </span>
+                        <span class="tag js">
+                            JavaScript
+                        </span>
+                        <span class="tag vue">
+                            Vue
+                        </span>
+                    </div>
+                </div>
+                <button id="contactBtn" type="button" class="hero__btn">
+                    Let's make something great
+                </button>
+            </div>
+            <div id="contactContainer" class="hero__contact" style="display:none;">
+                <h1 class="rubbery">Contact</h1>
+                <form action="https://formspree.io/info.dylandavies@gmail.com" method="POST">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-group__label" for="firstName">First Name</label>
+                            <input class="form-group__input" name="firstName" id="firstName" placeholder="John" type="text"
+                                required />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-group__label" for="lastName">Last Name</label>
+                            <input class="form-group__input" name="lastName" id="lastName" placeholder="Smith" type="text"
+                                required />
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-group__label" for="email">Email</label>
+                            <input class="form-group__input" id="email" name="email" placeholder="john.smith@example.com"
+                                type="email" required />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-group__label" for="website">Website</label>
+                            <input class="form-group__input" placeholder="https://example.com" name="website" id="website"
+                                type="url" required />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="message" class="form-group__label">Message</label>
+                        <textarea class="form-group__input" name="message" id="message" style="width:300px;height:100px;"></textarea>
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn--outline white">Submit</button>
+                        <button id="cancelContactBtn" type="button" class="btn btn--text white">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>
