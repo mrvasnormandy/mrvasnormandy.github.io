@@ -39,7 +39,7 @@ function isAnimating(e) {
 }
 
 function oneTimeEvent(element, eventType, callback) {
-  element.addEventListener(eventType, function callee (e) {
+  element.addEventListener(eventType, function callee(e) {
     e.target.removeEventListener(e.type, callee);
     return callback(e);
   });
