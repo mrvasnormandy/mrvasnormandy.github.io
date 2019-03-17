@@ -1,0 +1,21 @@
+.form-group{
+    margin-bottom:32px;
+    & .form-group__label{
+      display:block;
+      margin-bottom:8px;
+    }
+    & .form-group__input{
+      padding:12px;
+      color:$white;
+      background:none;
+      border-radius:4px;
+      border:1px solid $white;
+    }
+  }
+  .form-row{
+    display:flex;
+    flex-wrap:wrap;
+    & > .form-group:not(:last-child){
+      margin-right:32px;
+    }
+  }

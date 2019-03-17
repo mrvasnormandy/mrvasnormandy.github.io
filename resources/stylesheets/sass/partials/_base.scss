@@ -1,0 +1,14 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab);
+
+$font-family: "Roboto Slab", sans-serif;
+$white: #fff;
+$vue: rgb(63, 186, 132);
+$js: rgb(251, 214, 1);
+$hibernate: rgb(188, 174, 121);
+$sass: rgb(206, 103, 154);
+$css: rgb(55, 154, 214);
+$android: #5cc85c;
+$sql: #8498a5;
+$java: orange;
+
+@import '../modules/mixins';

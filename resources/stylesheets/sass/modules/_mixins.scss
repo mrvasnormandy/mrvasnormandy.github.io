@@ -1,0 +1,11 @@
+@mixin outlineHover($colour) {
+    &:hover {
+      transition: background 100ms ease-in-out;
+      background: rgba($colour, 0.1);
+    }
+  }
+  @mixin outline($colour) {
+    color: $colour;
+    border: 1px solid $colour;
+    @include outlineHover($colour);
+  }
