@@ -7,13 +7,17 @@ export default class RubberyCharacter {
   }
   init() {
     var self = this;
-    this.element.addEventListener("mouseover", function () {
+    this.element.addEventListener("mouseover", e => {
+      if (e.target !== self.element)
+        return;
       self.jiggle();
     });
-    this.element.addEventListener("animationend", function (e) {
+    this.element.addEventListener("animationend", e => {
+      if (e.target !== self.element)
+        return;
       self.unjiggle();
     });
-    this.element.addEventListener("click", function () {
+    this.element.addEventListener("click", () => {
       self.unjiggle();
       self.rubbery.wave(self.index);
     });
