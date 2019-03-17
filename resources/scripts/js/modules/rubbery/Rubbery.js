@@ -6,22 +6,24 @@ export default class Rubbery {
     this.init();
   }
   waveRight(index) {
-    var self = this;
     let timeout = 0;
     for (let i = index; i < this.characters.length; i++) {
       timeout += 50;
-      setTimeout(function () {
-        self.characters[i].jiggle();
+      setTimeout(() => {
+        let c = this.characters[i];
+        c.unjiggle();
+        c.jiggle();
       }, timeout);
     }
   }
   waveLeft(index) {
-    var self = this;
     let timeout = 0;
     for (let i = index; i >= 0; i--) {
       timeout += 50;
-      setTimeout(function () {
-        self.characters[i].jiggle();
+      setTimeout(() => {
+        let c = this.characters[i];
+        c.unjiggle();
+        c.jiggle();
       }, timeout);
     }
   }
