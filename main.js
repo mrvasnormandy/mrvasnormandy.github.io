@@ -60,12 +60,16 @@ class RubberyCharacter {
       self.jiggle();
     });
     this.element.addEventListener("animationend", function(e) {
-      e.target.classList.remove("animated");
-      e.target.classList.remove("rubberBand");
+      self.unjiggle();
     });
     this.element.addEventListener("click", function(){
+      self.unjiggle();
       self.rubbery.wave(self.index);
     });
+  }
+  unjiggle(){
+    this.element.classList.remove("animated");
+    this.element.classList.remove("rubberBand");
   }
   jiggle(){
     this.element.classList.add("animated");
