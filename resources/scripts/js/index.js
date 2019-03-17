@@ -11,9 +11,11 @@ document.getElementById("contactBtn").addEventListener("click", event => {
   let info = document.getElementById("infoContainer");
   if (anyAnimating([contact, info]))
     return;
-  flipOutFlipIn(
+  transitionOutTransitionIn(
     info,
-    contact
+    "fadeOut",
+    contact,
+    "fadeIn"
   );
 });
 
@@ -22,9 +24,11 @@ document.getElementById("cancelContactBtn").addEventListener("click", event => {
   let info = document.getElementById("infoContainer");
   if (anyAnimating([contact, info]))
     return;
-  flipOutFlipIn(
+  transitionOutTransitionIn(
     contact,
-    info
+    "fadeOut",
+    info,
+    "fadeIn"
   );
 });
 
@@ -46,23 +50,23 @@ function oneTimeEvent(element, eventType, callback) {
   });
 }
 
-function flipOutFlipIn(flipOut, flipIn) {
-  flipOut.classList.add("animated");
-  flipOut.classList.add("flipOutX");
-  oneTimeEvent(flipOut, "animationend", e => {
-    if (e.target !== flipOut)
+function transitionOutTransitionIn(transitionOut, animationOut, transitionIn, animationIn) {
+  transitionOut.classList.add("animated");
+  transitionOut.classList.add(animationOut);
+  oneTimeEvent(transitionOut, "animationend", e => {
+    if (e.target !== transitionOut)
       return;
-    flipOut.style.display = 'none';
-    flipOut.classList.remove("animated");
-    flipOut.classList.remove("flipOutX");
-    flipIn.classList.add("animated");
-    flipIn.classList.add("flipInX");
-    flipIn.style.display = 'block';
-    oneTimeEvent(flipIn, "animationend", e => {
-      if (e.target !== flipIn)
+    transitionOut.style.display = 'none';
+    transitionOut.classList.remove("animated");
+    transitionOut.classList.remove(animationOut);
+    transitionIn.classList.add("animated");
+    transitionIn.classList.add(animationIn);
+    transitionIn.style.display = 'block';
+    oneTimeEvent(transitionIn, "animationend", e => {
+      if (e.target !== transitionIn)
         return;
-      flipIn.classList.remove("animated");
-      flipIn.classList.remove("flipInX");
+      transitionIn.classList.remove("animated");
+      transitionIn.classList.remove(animationIn);
     });
   });
 }
