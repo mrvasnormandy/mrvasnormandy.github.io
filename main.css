@@ -22,6 +22,7 @@
   width: 349px;
 }
 .hero .hero__title {
+  margin-top:5px;
   font-size: 50px;
   margin-bottom: 5px;
 }
@@ -150,6 +151,7 @@
 body {
   margin: 0;
   background: black;
+  overflow:hidden;
 }
 
 html,
@@ -209,7 +211,7 @@ input {
   display: flex;
   flex-wrap: wrap;
 }
-.form-row > .form-group {
+.form-row > .form-group:not(:last-child) {
   margin-right: 32px;
 }
 
