@@ -17,7 +17,6 @@ function rubberify(v) {
 }
 
 function readyLetter(l) {
-  console.log("creating letter: " + l);
   let element = document.createElement("span");
   element.style.display = "inline-block";
   element.appendChild(document.createTextNode(l));
@@ -77,14 +76,12 @@ function oneTimeEvent(element, eventType, callback) {
 }
 
 function flipOutFlipIn(flipOut, flipIn) {
-  console.log("flip out");
   flipOut.classList.add("animated");
   flipOut.classList.add("flipOutX");
   oneTimeEvent(flipOut, "animationend", function () {
     flipOut.style.display = 'none';
     flipOut.classList.remove("animated");
     flipOut.classList.remove("flipOutX");
-    console.log("flip in");
     flipIn.classList.add("animated");
     flipIn.classList.add("flipInX");
     flipIn.style.display = 'block';
