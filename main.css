@@ -24,6 +24,7 @@
 .hero .hero__title {
   margin-top:5px;
   font-size: 50px;
+  white-space:pre-wrap;
   margin-bottom: 5px;
 }
 .hero .tags {

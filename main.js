@@ -1,38 +1,81 @@
-function rubberify(v) {
-  let txt = v.innerText;
-  v.setAttribute("aria-label", txt);
-  v.innerHTML = "";
-  txt.split("").forEach(function(c) {
-    if (c === "" || c === " ") {
-      v.appendChild(document.createTextNode(c));
-      return;
+class Rubbery {
+  constructor(e) {
+    this.element = e;
+    this.characters = [];
+    this.init();
+  }
+  waveRight(index){
+    var self = this;
+    let timeout = 0;
+    for(let i = index; i < this.characters.length; i++){
+      timeout+=50;
+      setTimeout(function(){
+        self.characters[i].jiggle();
+      }, timeout);
     }
-    if (c === ",") {
-      v.appendChild(readyLetter(c));
-      v.appendChild(document.createElement("br"));
-      return;
+  }
+  waveLeft(index){
+    var self = this;
+    let timeout = 0;
+    for(let i = index; i >= 0; i--){
+      timeout += 50;
+      setTimeout(function(){
+        self.characters[i].jiggle();
+      }, timeout);
     }
-    v.appendChild(readyLetter(c));
-  });
+  }
+  wave(index){
+    this.waveLeft(index);
+    this.waveRight(index);
+  }
+  init() {
+    this.element.setAttribute("aria-label", this.element.innerText);
+    let c = this.element.innerText.split("");
+    for (let i = 0; i < c.length; i++) {
+      let rubberyCharacterElement = document.createElement("span");
+      if(c[i] !== '\n'){
+        rubberyCharacterElement.style.display = "inline-block";
+        rubberyCharacterElement.style.whiteSpace = "pre-wrap";
+      }
+      rubberyCharacterElement.appendChild(document.createTextNode(c[i]));
+      this.characters.push(new RubberyCharacter(this, rubberyCharacterElement, i));
+    }
+    this.element.innerHTML = "";
+    for (let i = 0; i < this.characters.length; i++) {
+      this.element.appendChild(this.characters[i].element);
+    }
+  }
 }
 
-function readyLetter(l) {
-  let element = document.createElement("span");
-  element.style.display = "inline-block";
-  element.appendChild(document.createTextNode(l));
-  element.addEventListener("mouseover", function(event){
-    event.target.classList.add("animated");
-    event.target.classList.add("rubberBand");
-  });
-  element.addEventListener("animationend", function(event) {
-    event.target.classList.remove("animated");
-    event.target.classList.remove("rubberBand");
-  });
-  return element;
+class RubberyCharacter {
+  constructor(rubbery, e, index) {
+    this.rubbery = rubbery;
+    this.element = e;
+    this.index = index;
+    this.init();
+  }
+  init() {
+    var self = this;
+    this.element.addEventListener("mouseover", function() {
+      self.jiggle();
+    });
+    this.element.addEventListener("animationend", function(e) {
+      e.target.classList.remove("animated");
+      e.target.classList.remove("rubberBand");
+    });
+    this.element.addEventListener("click", function(){
+      self.rubbery.wave(self.index);
+    });
+  }
+  jiggle(){
+    this.element.classList.add("animated");
+    this.element.classList.add("rubberBand");
+  }
 }
+
 
 document.querySelectorAll(".rubbery").forEach(function(v) {
-  rubberify(v);
+  new Rubbery(v);
 });
 
 document.getElementById("contactBtn").addEventListener("click", event => {
