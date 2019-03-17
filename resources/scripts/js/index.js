@@ -48,14 +48,18 @@ function oneTimeEvent(element, eventType, callback) {
 function flipOutFlipIn(flipOut, flipIn) {
   flipOut.classList.add("animated");
   flipOut.classList.add("flipOutX");
-  oneTimeEvent(flipOut, "animationend", () => {
+  oneTimeEvent(flipOut, "animationend", e => {
+    if (e.target !== flipOut)
+      return;
     flipOut.style.display = 'none';
     flipOut.classList.remove("animated");
     flipOut.classList.remove("flipOutX");
     flipIn.classList.add("animated");
     flipIn.classList.add("flipInX");
     flipIn.style.display = 'block';
-    oneTimeEvent(flipIn, "animationend", () => {
+    oneTimeEvent(flipIn, "animationend", e => {
+      if (e.target !== flipIn)
+        return;
       flipIn.classList.remove("animated");
       flipIn.classList.remove("flipInX");
     });
