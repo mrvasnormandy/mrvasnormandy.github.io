@@ -1,0 +1,39 @@
+{
+  "name": "mrvasnormandy.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@babel/core": "^7.3.4",
+    "autoprefixer": "^9.5.0",
+    "babel-loader": "^8.0.5",
+    "babel-preset-minify": "^0.5.0",
+    "css-loader": "^2.1.1",
+    "extract-loader": "^3.1.0",
+    "file-loader": "^3.0.1",
+    "node-sass": "^4.11.0",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.29.6"
+  },
+  "devDependencies": {
+    "mini-css-extract-plugin": "^0.5.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.1",
+    "webpack-cli": "^3.3.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrvasnormandy/mrvasnormandy.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mrvasnormandy/mrvasnormandy.github.io/issues"
+  },
+  "homepage": "https://github.com/mrvasnormandy/mrvasnormandy.github.io#readme"
+}

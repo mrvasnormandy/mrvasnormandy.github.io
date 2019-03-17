@@ -1,4 +1,7 @@
-document.querySelectorAll(".rubbery").forEach(function(v) {
+require('../../stylesheets/sass/index.scss');
+import Rubbery from './modules/Rubbery.js';
+
+document.querySelectorAll(".rubbery").forEach(v => {
   new Rubbery(v);
 });
 
@@ -36,8 +39,8 @@ function isAnimating(e) {
 }
 
 function oneTimeEvent(element, eventType, callback) {
-  element.addEventListener(eventType, function (e) {
-    e.target.removeEventListener(e.type, arguments.callee);
+  element.addEventListener(eventType, function callee (e) {
+    e.target.removeEventListener(e.type, callee);
     return callback(e);
   });
 }
@@ -45,14 +48,14 @@ function oneTimeEvent(element, eventType, callback) {
 function flipOutFlipIn(flipOut, flipIn) {
   flipOut.classList.add("animated");
   flipOut.classList.add("flipOutX");
-  oneTimeEvent(flipOut, "animationend", function () {
+  oneTimeEvent(flipOut, "animationend", () => {
     flipOut.style.display = 'none';
     flipOut.classList.remove("animated");
     flipOut.classList.remove("flipOutX");
     flipIn.classList.add("animated");
     flipIn.classList.add("flipInX");
     flipIn.style.display = 'block';
-    oneTimeEvent(flipIn, "animationend", function () {
+    oneTimeEvent(flipIn, "animationend", () => {
       flipIn.classList.remove("animated");
       flipIn.classList.remove("flipInX");
     });
