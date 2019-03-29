@@ -34,7 +34,13 @@ module.exports = {
             // AND `<script>` blocks in `.vue` files
             {
                 test: /\.js$/,
-                loader: 'babel-loader',
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env'],
+                        plugins: ['@babel/plugin-transform-classes']
+                    },
+                },
                 exclude: /node_modules/
             },
             // this will apply to both plain `.css` files
